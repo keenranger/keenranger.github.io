@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='TL;DR PR 해둔 상태인데, 머지가 될지, 얼마나 걸릴지는 모르겠다&amp;hellip; 2022년 5월 1일 기준 flutter_reactive_ble 패키지는 안드로이드 12이상(API &amp;gt;= 31)에서 위'><title>[Flutter] flutter_reactive_ble Android 12 스캔 오류</title>
+
+<link rel='canonical' href='https://keenranger.github.io/p/flutter-reactive-ble-android-12-scan-failure/'>
+
+<link rel="stylesheet" href="/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css"><meta property='og:title' content='[Flutter] flutter_reactive_ble Android 12 스캔 오류'>
+<meta property='og:description' content='TL;DR PR 해둔 상태인데, 머지가 될지, 얼마나 걸릴지는 모르겠다&amp;hellip; 2022년 5월 1일 기준 flutter_reactive_ble 패키지는 안드로이드 12이상(API &amp;gt;= 31)에서 위'>
+<meta property='og:url' content='https://keenranger.github.io/p/flutter-reactive-ble-android-12-scan-failure/'>
+<meta property='og:site_name' content='마크의 개발 블로그'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-05-01T18:38:54&#43;09:00'/><meta property='article:modified_time' content='2022-05-01T18:38:54&#43;09:00'/>
+<meta name="twitter:title" content="[Flutter] flutter_reactive_ble Android 12 스캔 오류">
+<meta name="twitter:description" content="TL;DR PR 해둔 상태인데, 머지가 될지, 얼마나 걸릴지는 모르겠다&amp;hellip; 2022년 5월 1일 기준 flutter_reactive_ble 패키지는 안드로이드 12이상(API &amp;gt;= 31)에서 위">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">마크의 개발 블로그</a></h1>
+            <h2 class="site-description">문제 생길때 마다 끄적이는 블로그입니다...</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/keenranger'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/hankyeol-kyung-851282135/'
+                        target="_blank"
+                        title="Linkedin"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://keenranger.github.io/" selected>한국어</option>
+                        
+                            <option value="https://keenranger.github.io/en/" >Enlgish</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/flutter-reactive-ble-android-12-scan-failure/">[Flutter] flutter_reactive_ble Android 12 스캔 오류</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 01, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="tldr">TL;DR</h2>
+<p><a class="link" href="https://github.com/PhilipsHue/flutter_reactive_ble/pull/554"  target="_blank" rel="noopener"
+    >PR</a> 해둔 상태인데, 머지가 될지, 얼마나 걸릴지는 모르겠다&hellip;</p>
+<p>2022년 5월 1일 기준 <a class="link" href="https://pub.dev/packages/flutter_reactive_ble"  target="_blank" rel="noopener"
+    >flutter_reactive_ble</a> 패키지는 안드로이드 12이상(API &gt;= 31)에서 위치를 위한 블루투스 스캔이 불가능하다.<br>
+패키지에서 안드로이드에서 블루투스 스캔 구현을 위해 사용하는 라이브러리 <a class="link" href="https://github.com/dariuszseweryn/RxAndroidBle"  target="_blank" rel="noopener"
+    >RxAndroidBLE</a>는 기본적으로 &rsquo;neverForLocation&rsquo;을 전제로 블루투스 스캔을 하기 때문이다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>    <span style="color:#f92672">&lt;uses-permission</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;android.permission.BLUETOOTH_SCAN&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">android:usesPermissionFlags=</span><span style="color:#e6db74">&#34;neverForLocation&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">tools:targetApi=</span><span style="color:#e6db74">&#34;s&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span></code></pre></div><p>문제가 되는 해당 라이브러리의 AndroidManifest 파일이다. neverForlocation이 명시되어있고, 이를 해결하기 위해서는 우리 앱의 AndroidManifest에서 해당 플래그를 제외해주면 된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;uses-permission</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;android.permission.BLUETOOTH_SCAN&#34;</span> 
+</span></span><span style="display:flex;"><span>                     <span style="color:#a6e22e">tools:remove=</span><span style="color:#e6db74">&#34;android:usesPermissionFlags&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#a6e22e">tools:targetApi=</span><span style="color:#e6db74">&#34;s&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span></code></pre></div><h2 id="주절주절">주절주절</h2>
+<p><a class="link" href="https://apps.apple.com/us/app/inner-%EC%9D%B4%EB%84%88/id1619472927"  target="_blank" rel="noopener"
+    >inner - 이너</a> 앱의 디데이 맞춘 출시를 위해 이거빼고 저거빼서 앱스토어에 올렸더니 심사 지침 4.2에 걸려 반려당했다&hellip;</p>
+<blockquote>
+<p>앱에는 웹 사이트를 단순히 바꾼 수준을 넘어서는 기능, 콘텐츠, UI가 있어야 합니다. 특별히 유용하거나 고유하지 않은, &lsquo;앱 같지 않은&rsquo; 앱은 App Store에 등록할 수 없습니다. 지속적인 오락적 가치 또는 적절한 유용성을 제공하지 못하는 앱은 거부될 수 있습니다. 단순히 노래 한 곡이나 동영상 한 편을 담은 앱은 iTunes Store에 제출해야 합니다. 책이나 게임 설명서는 Apple Books Store에 제출해야 합니다.</p>
+</blockquote>
+<p>자동차를 만들기전에 보드부터 만들라 하였던가. 그런데 기능을 빼다보니 보드가 아니라 바퀴가 되었나보다. 출시일이 얼마 남지 않았기에 기획분의 마음은 상당히 다급한 상태였고, 우리가 섹터를 보여주는데 사용하는 카드의 갯수를 늘려 해결하자는 주장을 하셨다. 앱스토어 심사 지침이 귀에 걸면 귀걸이 코에 걸면 코걸이라지만, 반려에 대한 해결책으로 삼는다는게 이런거라니?!</p>
+<p>우리가 반려당한 이유는 feature의 부재였지, 컨텐츠의 부재가 아니었다. 같은 수준의 컨텐츠가 많아진다고 feature가 생기는 것이 아니다. 여전히 웹사이트 수준의 <strong>보여주는 앱</strong>인 것이고, 여전히 반려의 리스크가 존재할 것이다.</p>
+<p>실내 측위 회사로서 <a class="link" href="https://tjlabscorp.com"  target="_blank" rel="noopener"
+    >TJLABS</a>의 가장 큰 특징이자 차별점은 offline hardware와 interaction하는 점이고, 앞으로의 제품들에도 개발력의 한계로 인해 미뤄왔지만 반드시 포함되어야할 기능이기도 하다. 당시 상황에서 판단하기에, 핸드폰의 하드웨어와의 상호작용이 이루어지기 때문에 <strong>앱 같지 않은 앱</strong>이 아니라고 증명하기에 충분한 기능이고, 그런 기능 중 가장 구현이 쉬운 것이라고 생각하였고 이번 릴리즈에 해당 부분을 포함 시킬 것을 강력하게 주장하였다.</p>
+<p>이너 앱 개발 중 위치를 위한 블루투스 flutter 관련 라이브러리 서치 후 나온 후보군은 3이었다.</p>
+<ul>
+<li><a class="link" href="https://pub.dev/packages/flutter_blue"  target="_blank" rel="noopener"
+    >flutter_blue</a> : 패키지가 1.0에 아직 도달하지 못한 상태이고, <code>Please be fully prepared to deal with breaking changes. This package must be tested on a real device.</code>라고 하는데, 굳이 위험성을 감수하고 싶지 않았다. 활성화는 잘 되어있고, 그 덕에 이슈도 많은데 선택 당시에는 많은 이슈 또한 단점으로 보이게 했다.</li>
+<li><a class="link" href="https://pub.dev/packages/flutter_ble_lib"  target="_blank" rel="noopener"
+    >flutter_ble_lib</a> : null safety 적용도 안됐다&hellip;</li>
+<li><a class="link" href="https://pub.dev/packages/flutter_reactive_ble"  target="_blank" rel="noopener"
+    >flutter_reactive_ble</a> : 당시에는 가장 좋은 솔루션이라고 생각을 했다.</li>
+</ul>
+<p>당시에는 자료 조사를 할 시간도 많지 않았고, <code>flutter_reactive_ble</code>가 꽤 괜찮은 패키지라고 생각하고 진행하였다. 우리는 BLE장치와의 별도의 연결 등은 필요 없고, 스캔만 하면 됐기 때문에, Holden에게 작업을 부탁했고 아이폰과 안드로이드폰 양쪽에서 스캔을 구현하는데 오래 걸리지 않았다. 그런데 안드로이드 12 디바이스들에서 우리 비컨이 스캔이 되지 않는 것이다&hellip; <a class="link" href="https://developer.android.com/guide/topics/connectivity/bluetooth/permissions"  target="_blank" rel="noopener"
+    >Android 12의 새 블루투스 권한</a> 관련한 문제인 것은 분명했고, 위치를 사용하는 우리 시스템에 맞춰서 필요한 manifest 세팅을 해주었음에도 작동을 안하는 상황이었다.</p>
+<p>출시가 되지 않은 것은 <code>App Store</code> 쪽 뿐이었기에, <code>Android</code>에서만 발생한 해당 이슈는 우선 묻어두고 출시 일정에 맞추어 <code>iOS</code>쪽에만 서둘러 해당 기능을 배포하였고, 일정을 지켜서 심사에 통과할 수 있었다.</p>
+<p>홀든이 이래저래 고생하면서 찾아낸 원인은, <code>flutter_reactive_ble</code> 패키지 속 <code>RxAndroidBLE</code>의 <code>AndroidManifest</code>에 <code>neverforlocation</code>이 이미 선언되어있기 때문에, 밖에서 위치를 위한 사용이 안되는 것이었다. 해당 부분에 대한 권한 설정을 외부 manifest에서 제거하는 방식으로 해결했다. 해당 라이브러리에서는 이 사실을 명시해두었으나, 라이브러리를 사용하는 <code>flutter_reactive_ble</code> 패키지에는 이 사실이 명시되어 있지 않아있어, 해당 부분에 대해 <a class="link" href="https://github.com/PhilipsHue/flutter_reactive_ble/pull/554"  target="_blank" rel="noopener"
+    >PR</a> 해두었다.</p>
+<p><code>AndroidManifest</code>는 중복되더라도 자동으로 병합되기 때문에, 안드로이드 라이브러리들이나 플러터 패키지들에서 내부적으로 선언을 다 해둔 것 같다. 그런데 안드로이드 12 위치를 위한 블루투스 스캔의 특수성 때문에 해당 오류가 발생한 것으로 여겨지는데, 이런식의 병합 오류가 발생하도록 새로운 블루투스 권한을 설계한 것이 잘 이해가 가지 않는다.</p>
+<p>버전마다 상당한 부분이 변경되는 안드로이드의 특성을 다시 한번 경험하며, 앞으로 플러터 기반의 크로스플랫폼 기반의 <strong>이너</strong> 앱 개발에 있어서도, 기존에 계획한 것 처럼 하드웨어 관련 부분은 네이티브 기준으로 구성할 필요가 있다는 것을 다시 느낄 수 있었다.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 마크의 개발 블로그
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tldr">TL;DR</a></li>
+    <li><a href="#주절주절">주절주절</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
