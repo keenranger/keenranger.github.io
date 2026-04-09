@@ -4,8 +4,83 @@ import Base from '../layouts/Base.astro';
 
 <Base title="Writing — Hankyeol Kyung">
   <h1>Writing</h1>
-
   <p class="subtitle">Selected thoughts on agents, memory, and building systems.</p>
 
-  <p style="color: var(--color-muted);">Coming soon.</p>
+  <div class="project">
+    <h3>Harness engineering over model worship</h3>
+    <span class="tag">agents</span>
+    <span class="tag">systems</span>
+    <p>
+      In applied agent systems, capability depends less on the model alone than on
+      the harness built around it. Tool integration, runtime environment, context packaging,
+      retries, evaluation loops, session handling -- a better harness makes the same model
+      dramatically more useful. This is a correction to the instinct that progress is
+      mostly about swapping in a better model.
+    </p>
+  </div>
+
+  <div class="project">
+    <h3>Public layer over private memory</h3>
+    <span class="tag">publishing</span>
+    <span class="tag">knowledge</span>
+    <p>
+      A private knowledge system can serve as substrate for a public site without
+      exposing the full corpus. The pattern: keep internal memory private, define what
+      is publishable, derive a curated public layer. This avoids the false choice between
+      keeping everything private and publishing raw notes. The private system becomes the
+      upstream knowledge layer; the public site becomes a curated interface.
+    </p>
+  </div>
+
+  <div class="project">
+    <h3>Structured control over prompting</h3>
+    <span class="tag">agent control</span>
+    <span class="tag">runtime</span>
+    <p>
+      A useful shift in agent systems: moving from plain chat toward structured control
+      over stateful sessions. Instead of treating an agent as "something you prompt",
+      treat it as a session, a runtime object, something that can be resumed, steered,
+      inspected, and automated. Once sessions become real runtime objects, lifecycle bugs
+      become control-plane failures -- and reliability starts to matter differently.
+    </p>
+  </div>
+
+  <div class="project">
+    <h3>Interface bridges over substrate</h3>
+    <span class="tag">design</span>
+    <span class="tag">adoption</span>
+    <p>
+      Sometimes the right move is not replacing the substrate, but changing the interface
+      exposed on top of it. Object storage surfaced through file-like APIs.
+      Knowledge graphs rendered as wiki pages. Agent runtimes wrapped in CLI.
+      If a system is powerful but adoption is low, ask: should the substrate change,
+      or does the interface need a better bridge?
+    </p>
+  </div>
+
+  <div class="project">
+    <h3>Graph-mediated retrieval</h3>
+    <span class="tag">retrieval</span>
+    <span class="tag">structure</span>
+    <p>
+      A useful retrieval pattern: place a structural layer between raw data and final reasoning.
+      Instead of sending an agent straight into raw files, give it a graph-like map first --
+      what exists, what connects, where to re-enter, what to read next.
+      This reduces blind traversal and makes large knowledge bases navigable
+      without loading everything into context.
+    </p>
+  </div>
+
+  <div class="project">
+    <h3>Agent memory as both knowledge and runtime</h3>
+    <span class="tag">memory</span>
+    <span class="tag">agents</span>
+    <p>
+      File-based, explicit memory makes agent knowledge inspectable and portable.
+      A useful pattern: raw sources, compiled wiki, schema rules.
+      But agent memory is also a runtime problem -- thread history injection,
+      session continuity, context correctness. A strong personal agent is
+      model + memory substrate + maintenance loop, not just a smart chat endpoint.
+    </p>
+  </div>
 </Base>
