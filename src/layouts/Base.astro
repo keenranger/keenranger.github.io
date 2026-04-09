@@ -10,6 +10,7 @@ const {
 } = Astro.props;
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonicalUrl = new URL(currentPath, Astro.site);
+const socialImageUrl = new URL('/og-image.svg', Astro.site);
 const ogTitle = title === 'Hankyeol Kyung' ? title : `${title} | Hankyeol Kyung`;
 
 const nav = [
@@ -37,10 +38,14 @@ function isActive(href: string) {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Hankyeol Kyung" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:alt" content="Hankyeol Kyung, agent engineer building practical AI systems for memory, autonomy, and ambient interfaces." />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
     <meta name="twitter:creator" content="@hankyeolkyung" />
+    <meta name="theme-color" content="#f4f7fb" />
     <title>{ogTitle}</title>
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
