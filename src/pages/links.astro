@@ -2,21 +2,25 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="Links — Hankyeol Kyung">
+<Base
+  title="Links"
+  description="Find Hankyeol Kyung across GitHub, X, and Asleep."
+>
   <h1>Links</h1>
+  <p class="subtitle">A few good places to find my work and what I'm building.</p>
 
   <div class="links-list">
-    <a href="https://github.com/keenranger">
+    <a href="https://github.com/keenranger" rel="me">
       GitHub
-      <span class="desc">Code and open source</span>
+      <span class="desc">Code, experiments, and open source work</span>
     </a>
-    <a href="https://x.com/hankyeolkyung">
+    <a href="https://x.com/hankyeolkyung" rel="me">
       X / Twitter
-      <span class="desc">Short-form thoughts</span>
+      <span class="desc">Short-form thoughts on agents, systems, and what I'm noticing</span>
     </a>
     <a href="https://asleep.ai">
       Asleep
-      <span class="desc">Where I work -- AI-powered sleep technology</span>
+      <span class="desc">My day job, building AI-powered sleep technology</span>
     </a>
   </div>
 </Base>

@@ -4,8 +4,13 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'Hankyeol Kyung — agent engineer building personal and ambient AI systems.' } = Astro.props;
+const {
+  title,
+  description = 'Hankyeol Kyung, agent engineer building practical AI systems for memory, autonomy, and ambient interfaces.',
+} = Astro.props;
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonicalUrl = new URL(currentPath, Astro.site);
+const ogTitle = title === 'Hankyeol Kyung' ? title : `${title} | Hankyeol Kyung`;
 
 const nav = [
   { href: '/about', label: 'About' },
@@ -26,22 +31,39 @@ function isActive(href: string) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <title>{title}</title>
+    <meta name="author" content="Hankyeol Kyung" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Hankyeol Kyung" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:creator" content="@hankyeolkyung" />
+    <title>{ogTitle}</title>
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
     <header>
       <a href="/" class="site-name">Hankyeol Kyung</a>
-      <nav>
+      <nav aria-label="Primary">
         {nav.map(({ href, label }) => (
-          <a href={href} class:list={[{ active: isActive(href) }]}>{label}</a>
+          <a href={href} class:list={[{ active: isActive(href) }]} aria-current={isActive(href) ? 'page' : undefined}>{label}</a>
         ))}
       </nav>
     </header>
     <main>
       <slot />
     </main>
-    <footer>&copy; {new Date().getFullYear()} Hankyeol Kyung</footer>
+    <footer>
+      <span>&copy; {new Date().getFullYear()} Hankyeol Kyung</span>
+      <span class="footer-links">
+        <a href="https://github.com/keenranger">GitHub</a>
+        <a href="https://x.com/hankyeolkyung">X</a>
+      </span>
+    </footer>
   </body>
 </html>
 
