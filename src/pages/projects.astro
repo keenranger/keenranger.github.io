@@ -4,36 +4,75 @@ import Base from '../layouts/Base.astro';
 
 <Base title="Projects — Hankyeol Kyung">
   <h1>Projects</h1>
+  <p class="subtitle">Systems I build, from product work to personal infrastructure.</p>
 
-  <div class="project">
+  <div class="project" id="sleephub">
     <h3>SleepHub</h3>
     <span class="tag">product</span>
     <span class="tag">ambient AI</span>
+    <span class="tag">voice agents</span>
     <p>
-      Bedside AI system for autonomous sleep coaching and monitoring.
-      Combines contactless sleep sensing with voice interaction and
-      personalized health insights.
+      Bedside AI system for autonomous sleep coaching and monitoring at
+      <a href="https://asleep.ai">Asleep</a>.
+      Combines contactless sleep sensing with voice interaction and personalized health insights.
+      Not just an app -- an ambient, autonomous product that works while you sleep.
+    </p>
+    <p>
+      This is the anchor project: real product work where agent infrastructure,
+      voice AI, and applied ML converge into something people use every night.
     </p>
   </div>
 
-  <div class="project">
+  <div class="project" id="knowledge-os">
     <h3>Knowledge OS</h3>
     <span class="tag">personal OS</span>
-    <span class="tag">markdown</span>
+    <span class="tag">markdown-first</span>
+    <span class="tag">agent memory</span>
     <p>
-      A markdown-first personal operating system built around memory, retrieval,
-      and curated public expression. Turns scattered context into reusable task
-      context, then publishes selected parts as this site.
+      A private, agent-native personal operating system built around a markdown-first knowledge layer.
+      Turns scattered context -- notes, GitHub, email, conversations -- into structured,
+      reusable task context for agents and humans alike.
+    </p>
+    <p>
+      Architecture: raw sources ingested into compiled wiki pages (topics, projects, people, decisions),
+      with schema rules governing maintenance and retrieval.
+      This site is the first public layer derived from it --
+      curated public expression on top of private memory, not a raw dump.
     </p>
   </div>
 
-  <div class="project">
+  <div class="project" id="agent-infra">
     <h3>Agent Infrastructure</h3>
-    <span class="tag">infra</span>
     <span class="tag">runtime</span>
+    <span class="tag">agent control</span>
+    <span class="tag">harness engineering</span>
     <p>
-      Tooling for runtime correctness, memory continuity, and human-AI collaboration
-      surfaces. Focused on making agents reliable enough to trust with real workflows.
+      Tooling and patterns for making agents reliable enough to trust with real workflows.
+      Focused on structured agent control -- treating agents as stateful sessions
+      that can be resumed, steered, and automated, not just prompted.
+    </p>
+    <p>
+      Covers runtime correctness, memory continuity, evaluation loops,
+      session lifecycle management, and the harness engineering that makes
+      the same underlying model dramatically more useful.
+      Includes work on CLI adapters, context packaging, and agent-native workflow tooling.
+    </p>
+  </div>
+
+  <div class="project" id="utilities">
+    <h3>Utilities and Experiments</h3>
+    <span class="tag">tools</span>
+    <span class="tag">automation</span>
+    <span class="tag">glue</span>
+    <p>
+      Small, concrete tools that reduce real workflow friction --
+      CLI adapters, infra glue, environment management, interaction-layer experiments.
+      Shipping energy expressed as practical tool-making.
+    </p>
+    <p>
+      These are not side noise. They are part of the same builder identity:
+      dotfiles as real infrastructure, adapters as interface bridges,
+      and small repos as signals of how systems get stitched together in practice.
     </p>
   </div>
 </Base>
