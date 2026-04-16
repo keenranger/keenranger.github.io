@@ -3,42 +3,81 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="Hankyeol Kyung">
-  <h1>Hankyeol Kyung</h1>
-  <p class="subtitle">Agent engineer building practical AI systems for memory, autonomy, and ambient interfaces.</p>
+  <section class="hero">
+    <div class="eyebrow">AI/agent engineer in Seoul</div>
+    <h1>Building public anchors for ambient AI, agent infrastructure, and memory-rich systems.</h1>
+    <p class="hero-lede">
+      I work on AI systems that behave like real collaborators, not demo-shaped chat windows.
+      My work sits between product and runtime: SleepHub, agent infrastructure, and
+      knowledge systems that accumulate context over time.
+    </p>
+  </section>
 
-  <p>
-    I work on AI systems that feel like natural extensions of thinking --
-    not model demos, but real infrastructure for memory, retrieval, and human-AI collaboration.
-    Currently at <a href="https://asleep.ai">Asleep</a>, shipping ambient sleep AI.
-  </p>
+  <section class="section">
+    <span class="section-label">What I'm building</span>
 
-  <h2>Current focus</h2>
-  <ul>
-    <li>Ambient AI products at Asleep -- bedside sleep coaching, voice agents, contactless sensing</li>
-    <li>Agent infrastructure -- runtime correctness, session control, memory continuity</li>
-    <li>A personal knowledge OS -- markdown-first memory layer with curated public expression</li>
-  </ul>
+    <div class="project">
+      <h3><a href="/projects#sleephub">SleepHub</a></h3>
+      <p>Ambient bedside AI at Asleep. Core loop: understand what happened during the night, act on it during the day.</p>
+    </div>
 
-  <h2>Selected projects</h2>
+    <div class="project">
+      <h3><a href="/projects#agent-infra">Agent infrastructure</a></h3>
+      <p>Runtime correctness, session continuity, harness engineering, and structured control over agents in real workflows.</p>
+    </div>
 
-  <div class="project">
-    <h3><a href="/projects#sleephub">SleepHub</a></h3>
-    <p>Bedside AI for autonomous sleep coaching. Contactless sensing, voice interaction, ambient health intelligence.</p>
-  </div>
+    <div class="project">
+      <h3><a href="/projects#knowledge-os">Knowledge OS</a></h3>
+      <p>A markdown-first personal memory substrate, with this site as a curated public layer rather than a raw dump.</p>
+    </div>
+  </section>
 
-  <div class="project">
-    <h3><a href="/projects#knowledge-os">Knowledge OS</a></h3>
-    <p>Markdown-first personal operating system for memory, retrieval, and public expression. This site is its first public layer.</p>
-  </div>
+  <section class="section">
+    <span class="section-label">What I believe</span>
+    <ol class="belief-list">
+      <li>
+        <span class="num">01</span>
+        <div>
+          <strong>Runtime is the product.</strong>
+          <p>Most AI systems fail in the seams: retries, state handoffs, partial context, and 3am behavior. The product is what happens there.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <div>
+          <strong>Memory should be explicit.</strong>
+          <p>If you can't read, inspect, and revise the memory layer, you can't trust what the agent is doing with it.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <div>
+          <strong>Ambient beats intrusive.</strong>
+          <p>The best AI systems earn attention by being useful quietly. They fit the workflow instead of interrupting it.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
 
-  <div class="project">
-    <h3><a href="/projects#agent-infra">Agent Infrastructure</a></h3>
-    <p>Tooling for structured agent control, harness engineering, and making AI reliable enough for real workflows.</p>
-  </div>
-
-  <p>
-    See all <a href="/projects">projects</a>,
-    or find me on <a href="https://github.com/keenranger">GitHub</a>
-    and <a href="https://x.com/hankyeolkyung">X</a>.
-  </p>
+  <section class="section">
+    <span class="section-label">Where to go next</span>
+    <div class="entry-grid">
+      <a class="entry-card" href="/direction">
+        <h3>Direction</h3>
+        <p>The thesis, current focus, and the problems I actually want to spend years on.</p>
+      </a>
+      <a class="entry-card" href="/projects">
+        <h3>Projects</h3>
+        <p>Work across SleepHub, agent infrastructure, personal memory systems, and practical tooling.</p>
+      </a>
+      <a class="entry-card" href="/writing">
+        <h3>Writing</h3>
+        <p>Notes on agents, memory, product direction, and the systems layer under applied AI.</p>
+      </a>
+      <a class="entry-card" href="/about">
+        <h3>About</h3>
+        <p>How I think about harnesses, interfaces, structured control, and collaboration with AI.</p>
+      </a>
+    </div>
+  </section>
 </Base>

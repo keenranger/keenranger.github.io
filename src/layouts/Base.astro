@@ -14,7 +14,11 @@ const socialImageUrl = new URL('/og-image.svg', Astro.site);
 const ogTitle = title === 'Hankyeol Kyung' ? title : `${title} | Hankyeol Kyung`;
 
 const nav = [
+  { href: '/', label: 'Home' },
   { href: '/projects', label: 'Projects' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/direction', label: 'Direction' },
+  { href: '/about', label: 'About' },
 ];
 
 function isActive(href: string) {
@@ -60,12 +64,24 @@ function isActive(href: string) {
       <slot />
     </main>
     <footer>
-      <span>&copy; {new Date().getFullYear()} Hankyeol Kyung</span>
-      <span class="footer-links">
-        <a href="/about">About</a>
-        <a href="https://github.com/keenranger">GitHub</a>
-        <a href="https://x.com/hankyeolkyung">X</a>
-      </span>
+      <div>
+        <div class="footer-title">Navigate</div>
+        <div class="footer-links">
+          <a href="/projects">Projects</a>
+          <a href="/writing">Writing</a>
+          <a href="/direction">Direction</a>
+          <a href="/about">About</a>
+          <a href="/links">Links</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Elsewhere</div>
+        <div class="footer-links">
+          <a href="https://github.com/keenranger">GitHub</a>
+          <a href="https://x.com/hankyeolkyung">X</a>
+          <a href="https://asleep.ai">Asleep</a>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

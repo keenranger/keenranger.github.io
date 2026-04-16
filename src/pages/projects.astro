@@ -3,76 +3,79 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="Projects">
-  <h1>Projects</h1>
-  <p class="subtitle">Systems I build, from product work to personal infrastructure.</p>
+  <section class="hero">
+    <div class="eyebrow">Projects</div>
+    <h1>Product work, memory systems, and the runtime layer under AI collaboration.</h1>
+    <p class="hero-lede">
+      These are the threads I keep returning to. Some are product surfaces, some are internal systems,
+      and some are infrastructure that only becomes visible when it fails.
+    </p>
+  </section>
 
-  <div class="project" id="sleephub">
-    <h3>SleepHub</h3>
-    <span class="tag">product</span>
-    <span class="tag">ambient AI</span>
-    <span class="tag">voice agents</span>
-    <p>
-      Bedside AI system for autonomous sleep coaching and monitoring at
-      <a href="https://asleep.ai">Asleep</a>.
-      Combines contactless sleep sensing with voice interaction and personalized health insights.
-      Not just an app -- an ambient, autonomous product that works while you sleep.
-    </p>
-    <p>
-      This is the anchor project: real product work where agent infrastructure,
-      voice AI, and applied ML converge into something people use every night.
-    </p>
-  </div>
+  <section class="section">
+    <span class="section-label">Primary threads</span>
 
-  <div class="project" id="knowledge-os">
-    <h3>Knowledge OS</h3>
-    <span class="tag">personal OS</span>
-    <span class="tag">markdown-first</span>
-    <span class="tag">agent memory</span>
-    <p>
-      A private, agent-native personal operating system built around a markdown-first knowledge layer.
-      Turns scattered context -- notes, GitHub, email, conversations -- into structured,
-      reusable task context for agents and humans alike.
-    </p>
-    <p>
-      Architecture: raw sources ingested into compiled wiki pages (topics, projects, people, decisions),
-      with schema rules governing maintenance and retrieval.
-      This site is the <a href="https://github.com/keenranger/keenranger.github.io">first public layer</a> derived from it --
-      curated public expression on top of private memory, not a raw dump.
-    </p>
-  </div>
+    <div class="project" id="sleephub">
+      <h3>SleepHub</h3>
+      <div class="tag-row">
+        <span class="tag">product</span>
+        <span class="tag">ambient AI</span>
+        <span class="tag">voice agents</span>
+      </div>
+      <p>
+        Bedside AI system for autonomous sleep coaching and monitoring at
+        <a href="https://asleep.ai">Asleep</a>. It combines contactless sensing, voice interaction,
+        and personalized health insight delivery into something that has to work quietly in the background.
+      </p>
+      <p>
+        This is the anchor project: real product work where applied AI, runtime behavior,
+        and ambient interface design all collide.
+      </p>
+    </div>
 
-  <div class="project" id="agent-infra">
-    <h3>Agent Infrastructure</h3>
-    <span class="tag">runtime</span>
-    <span class="tag">agent control</span>
-    <span class="tag">harness engineering</span>
-    <p>
-      Tooling and patterns for making agents reliable enough to trust with real workflows.
-      Focused on structured agent control -- treating agents as stateful sessions
-      that can be resumed, steered, and automated, not just prompted.
-    </p>
-    <p>
-      Covers runtime correctness, memory continuity, evaluation loops,
-      session lifecycle management, and the harness engineering that makes
-      the same underlying model dramatically more useful.
-      Includes work on CLI adapters, context packaging, and agent-native workflow tooling.
-    </p>
-  </div>
+    <div class="project" id="knowledge-os">
+      <h3>Knowledge OS</h3>
+      <div class="tag-row">
+        <span class="tag">personal OS</span>
+        <span class="tag">markdown-first</span>
+        <span class="tag">agent memory</span>
+      </div>
+      <p>
+        A private, agent-native personal operating system built around explicit files.
+        Raw sources flow into compiled pages for topics, projects, people, and decisions.
+        This public site is one curated output of that system.
+      </p>
+      <p>
+        The pattern matters more than the brand: private memory upstream, durable public expression downstream.
+      </p>
+    </div>
 
-  <div class="project" id="utilities">
-    <h3>Utilities and Experiments</h3>
-    <span class="tag">tools</span>
-    <span class="tag">automation</span>
-    <span class="tag">glue</span>
-    <p>
-      Small, concrete tools that reduce real workflow friction --
-      CLI adapters, infra glue, environment management, interaction-layer experiments.
-      Shipping energy expressed as practical tool-making.
-    </p>
-    <p>
-      These are not side noise. They are part of the same builder identity:
-      dotfiles as real infrastructure, adapters as interface bridges,
-      and <a href="https://github.com/keenranger">small repos</a> as signals of how systems get stitched together in practice.
-    </p>
-  </div>
+    <div class="project" id="agent-infra">
+      <h3>Agent Infrastructure</h3>
+      <div class="tag-row">
+        <span class="tag">runtime</span>
+        <span class="tag">agent control</span>
+        <span class="tag">harness engineering</span>
+      </div>
+      <p>
+        Tooling and patterns for making agents reliable enough for real workflows.
+        Focus areas include session lifecycle, context packaging, structured control,
+        memory continuity, and the interface bridges that make strong systems usable.
+      </p>
+      <p>
+        The interesting problems are usually not model capability problems. They are runtime problems.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Utilities and experiments</span>
+    <div class="project" id="utilities">
+      <h3>Utilities and experiments</h3>
+      <p>
+        Smaller tools that remove workflow friction: CLI adapters, automation glue, environment management,
+        and the little systems that make bigger systems livable.
+      </p>
+    </div>
+  </section>
 </Base>

@@ -3,70 +3,55 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="About">
-  <h1>About</h1>
+  <section class="hero">
+    <div class="eyebrow">About</div>
+    <h1>Building AI systems that work in practice.</h1>
+    <p class="hero-lede">
+      I'm Hankyeol Kyung, an AI/agent engineer based in Seoul. I care about the layer where
+      models meet memory, runtime constraints, and real human workflows.
+    </p>
+  </section>
 
-  <p>
-    I'm an agent engineer building AI systems that work in practice --
-    not polished demos, but tools and infrastructure people actually rely on.
-    The problems I care about sit at the intersection of memory, autonomy,
-    and how agents fit into real human workflows.
-  </p>
+  <section class="section">
+    <span class="section-label">How I think about systems</span>
+    <p>
+      <strong>Harness over model.</strong> In applied agent work, capability depends less on the
+      model than on the harness around it: tool integration, runtime environments, context
+      packaging, session handling, and evaluation loops.
+    </p>
+    <p>
+      <strong>Interface bridges over substrate.</strong> Sometimes the right move is not replacing
+      the backend, but changing the surface on top of it. Powerful systems fail if the entry
+      point is awkward.
+    </p>
+    <p>
+      <strong>Structured control over prompting.</strong> Agents are not just something you prompt.
+      They are sessions and runtime objects that can be resumed, steered, inspected, and automated.
+    </p>
+    <p>
+      <strong>Memory as both knowledge and runtime.</strong> Agent memory is not only a storage
+      problem. It is also a runtime UX problem: continuity, correctness, and how context survives
+      over time.
+    </p>
+  </section>
 
-  <p>
-    At <a href="https://asleep.ai">Asleep</a>, I build AI-powered sleep products --
-    voice agents, ambient sensing, and the infrastructure connecting them.
-    Outside of work, I build personal systems that treat agents as collaborators:
-    external memory, knowledge retrieval, structured agent control, and ambient interfaces.
-  </p>
+  <section class="section">
+    <span class="section-label">Principles</span>
+    <ul>
+      <li>Ship over polish.</li>
+      <li>Good infrastructure disappears into the workflow.</li>
+      <li>Agents should extend how you think, not replace it.</li>
+      <li>The best systems feel collaborative, not theatrical.</li>
+      <li>Private knowledge layer upstream, curated public layer downstream.</li>
+    </ul>
+  </section>
 
-  <h2>How I think about systems</h2>
-
-  <p>
-    <strong>Harness over model.</strong>
-    In applied agent work, capability depends less on the model than on
-    the harness built around it -- tool integration, runtime environments,
-    context packaging, evaluation loops, session handling.
-    A better harness makes the same model dramatically more useful.
-  </p>
-
-  <p>
-    <strong>Interface bridges over substrate.</strong>
-    A powerful system with a bad entry point won't get used.
-    Sometimes the right move is not replacing the backend, but changing the surface exposed on top of it.
-    Knowledge graphs surfaced as wiki pages. Agent runtimes exposed through CLI.
-    The best system is the one whose interface invites use.
-  </p>
-
-  <p>
-    <strong>Structured control over prompting.</strong>
-    Agents are not just something you prompt -- they are sessions, runtime objects,
-    things that can be resumed, steered, inspected, and automated.
-    This distinction matters once you care about real reliability.
-  </p>
-
-  <p>
-    <strong>Memory as both knowledge and runtime.</strong>
-    Agent memory is not only a storage problem. It is also a runtime UX problem --
-    thread continuity, session state, context correctness.
-    A strong personal agent is model + memory substrate + maintenance loop,
-    not just a smart chat endpoint.
-  </p>
-
-  <h2>Principles</h2>
-  <ul>
-    <li>Ship over polish. Real users over toy demos.</li>
-    <li>Good infrastructure disappears into the workflow.</li>
-    <li>Agents should extend how you think, not replace it.</li>
-    <li>The best agent systems are collaborative, not theatrical.</li>
-    <li>Private knowledge layer upstream, curated public layer downstream.</li>
-  </ul>
-
-  <h2>Interests</h2>
-  <p>
-    Multi-agent orchestration. File-based agent memory systems.
-    Graph-mediated retrieval over raw traversal.
-    The gap between agent demos and agent products.
-    AI-native workflows that respect the human in the loop.
-    Turning scattered context into reusable knowledge.
-  </p>
+  <section class="section">
+    <span class="section-label">Contact</span>
+    <p>
+      The easiest public surfaces are <a href="https://github.com/keenranger">GitHub</a> and
+      <a href="https://x.com/hankyeolkyung">X</a>. If you want the sharper version of what I'm thinking,
+      <a href="/direction">Direction</a> is the best place to start.
+    </p>
+  </section>
 </Base>
