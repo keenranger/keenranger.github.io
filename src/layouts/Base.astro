@@ -6,7 +6,7 @@ interface Props {
 
 const {
   title,
-  description = 'Hankyeol Kyung, agent engineer building practical AI systems for memory, autonomy, and ambient interfaces.',
+  description = 'Hankyeol Kyung, AI/agent engineer building practical systems for memory, runtime, deployment, and human-AI collaboration.',
 } = Astro.props;
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonicalUrl = new URL(currentPath, Astro.site);
@@ -40,7 +40,7 @@ function isActive(href: string) {
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Hankyeol Kyung" />
     <meta property="og:image" content={socialImageUrl} />
-    <meta property="og:image:alt" content="Hankyeol Kyung, agent engineer building practical AI systems for memory, autonomy, and ambient interfaces." />
+    <meta property="og:image:alt" content="Hankyeol Kyung, AI/agent engineer building practical systems for memory, runtime, deployment, and human-AI collaboration." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={description} />

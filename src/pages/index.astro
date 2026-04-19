@@ -4,13 +4,22 @@ import Base from '../layouts/Base.astro';
 
 <Base title="Hankyeol Kyung">
   <section class="hero">
-    <div class="eyebrow">AI/agent engineer in Seoul</div>
-    <h1>Building public anchors for ambient AI, agent infrastructure, and memory-rich systems.</h1>
+    <div class="eyebrow">AI systems · runtime · deployment</div>
+    <h1>Building practical systems for memory, runtime, and human-AI collaboration.</h1>
     <p class="hero-lede">
-      I work on AI systems that behave like real collaborators, not demo-shaped chat windows.
-      My work sits between product and runtime: SleepHub, agent infrastructure, and
-      knowledge systems that accumulate context over time.
+      I work on AI systems that have to survive real workflows, not only demos.
+      My work sits across product surfaces and the infrastructure underneath them:
+      SleepHub, agent infrastructure, and knowledge systems that accumulate context over time.
     </p>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Current focus</span>
+    <ul class="now-list">
+      <li><strong>Ambient AI that earns its place.</strong> Building bedside and background systems that stay useful without becoming noisy.</li>
+      <li><strong>Agent runtime and memory.</strong> Making state, continuity, guardrails, and tool use hold up across real sessions.</li>
+      <li><strong>Validation surfaces.</strong> Thinking about how AI products move from internal prototypes to practical deployment, testbeds, and real users.</li>
+    </ul>
   </section>
 
   <section class="section">
@@ -18,7 +27,7 @@ import Base from '../layouts/Base.astro';
 
     <div class="project">
       <h3><a href="/projects#sleephub">SleepHub</a></h3>
-      <p>Ambient bedside AI at Asleep. Core loop: understand what happened during the night, act on it during the day.</p>
+      <p>Ambient bedside AI at Asleep. Core loop: understand what happened during the night, then turn that into useful daytime action.</p>
     </div>
 
     <div class="project">
@@ -54,6 +63,13 @@ import Base from '../layouts/Base.astro';
         <div>
           <strong>Ambient beats intrusive.</strong>
           <p>The best AI systems earn attention by being useful quietly. They fit the workflow instead of interrupting it.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">04</span>
+        <div>
+          <strong>Deployment matters more than posture.</strong>
+          <p>The question is not whether a system sounds impressive, but whether it can survive contact with real operators, real users, and real constraints.</p>
         </div>
       </li>
     </ol>

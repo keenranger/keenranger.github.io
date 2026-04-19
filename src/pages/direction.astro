@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 
-const lastUpdated = new Date('2026-04-16').toLocaleDateString('en-US', {
+const lastUpdated = new Date('2026-04-19').toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -36,9 +36,10 @@ const lastUpdated = new Date('2026-04-16').toLocaleDateString('en-US', {
   <section class="section">
     <span class="section-label">Now · current focus</span>
     <ul class="now-list">
-      <li><strong>SleepHub.</strong> Shipping the bedside AI experience at Asleep. Understand the night, act during the day.</li>
-      <li><strong>Knowledge OS.</strong> A markdown-first personal memory substrate. Files as source of truth, agents as readers and writers.</li>
-      <li><strong>Agent infrastructure.</strong> Session continuity, multi-agent coordination, and guardrails encoded into the environment.</li>
+      <li><strong>SleepHub.</strong> Shipping the bedside AI experience at Asleep. Understand what happened during the night, then turn that into useful daytime action.</li>
+      <li><strong>Knowledge OS.</strong> A markdown-first personal memory substrate. Files as source of truth, agents as readers and writers. This site is one translated output.</li>
+      <li><strong>Agent infrastructure.</strong> Session continuity, multi-agent coordination, runtime contracts, and guardrails encoded into the environment rather than left as prompt folklore.</li>
+      <li><strong>Validation surfaces.</strong> Exploring how AI systems move from internal prototypes to practical deployment, testbeds, and real users.</li>
       <li><strong>Writing.</strong> Short concrete notes in <a href="/writing">Writing</a>, taken from the workbench rather than from abstraction.</li>
     </ul>
   </section>
@@ -76,6 +77,13 @@ const lastUpdated = new Date('2026-04-16').toLocaleDateString('en-US', {
       </li>
       <li>
         <span class="num">05</span>
+        <div>
+          <strong>Deployment matters more than posture.</strong>
+          <p>The question is not whether a system sounds impressive, but whether it can survive contact with real operators, real users, and real constraints.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">06</span>
         <div>
           <strong>Build in the open when possible.</strong>
           <p>Public artifacts lead to sharper thinking and better systems than private drafts that never meet resistance.</p>
