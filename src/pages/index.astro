@@ -1,44 +1,95 @@
 ---
-import Base from '../layouts/Base.astro';
+import Base from "../layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+const latestThoughts = (await getCollection("thoughts"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 ---
 
-<Base title="Hankyeol Kyung">
+<Base title="Home">
   <section class="hero">
-    <div class="eyebrow">AI systems · runtime · deployment</div>
-    <h1>Building practical systems for memory, runtime, and human-AI collaboration.</h1>
+    <div class="eyebrow">AI systems &middot; runtime &middot; deployment</div>
+    <h1>Hankyeol Kyung</h1>
     <p class="hero-lede">
-      I work on AI systems that have to survive real workflows, not only demos.
-      My work sits across product surfaces and the infrastructure underneath them:
-      SleepHub, agent infrastructure, and knowledge systems that accumulate context over time.
+      I'm an AI/agent engineer building practical systems for memory,
+      runtime, and human-AI collaboration, systems that have to survive real
+      workflows, not only demos.
+    </p>
+    <p class="hero-lede muted">
+      I work on <a href="https://asleep.ai" target="_blank" rel="noopener">SleepHub at Asleep</a>,
+      on agent infrastructure, and on a markdown-first knowledge system that
+      turns private context into a public layer.
     </p>
   </section>
 
   <section class="section">
     <span class="section-label">Current focus</span>
     <ul class="now-list">
-      <li><strong>Ambient AI that earns its place.</strong> Building bedside and background systems that stay useful without becoming noisy.</li>
-      <li><strong>Agent runtime and memory.</strong> Making state, continuity, guardrails, and tool use hold up across real sessions.</li>
-      <li><strong>Validation surfaces.</strong> Thinking about how AI products move from internal prototypes to practical deployment, testbeds, and real users.</li>
+      <li>
+        <strong>Ambient AI that earns its place.</strong> Building bedside and
+        background systems that stay useful without becoming noisy.
+      </li>
+      <li>
+        <strong>Agent runtime and memory.</strong> Making state, continuity,
+        guardrails, and tool use hold up across real sessions.
+      </li>
+      <li>
+        <strong>Validation surfaces.</strong> Thinking about how AI products move
+        from internal prototypes to practical deployment, testbeds, and real users.
+      </li>
     </ul>
   </section>
 
   <section class="section">
     <span class="section-label">What I'm building</span>
+    <p class="section-intro">
+      Three primary threads, all variations on the same question: what does it
+      look like when AI systems become durable collaborators instead of clever demos?
+    </p>
 
-    <div class="project">
+    <div class="project-card">
       <h3><a href="/projects#sleephub">SleepHub</a></h3>
-      <p>Ambient bedside AI at Asleep. Core loop: understand what happened during the night, then turn that into useful daytime action.</p>
+      <p>
+        Ambient, bedside AI for autonomous sleep coaching and tracking. Device
+        integration, sleep analysis pipelines, and insight delivery &mdash; the
+        anchor of my applied AI work.
+      </p>
     </div>
 
-    <div class="project">
-      <h3><a href="/projects#agent-infra">Agent infrastructure</a></h3>
-      <p>Runtime correctness, session continuity, harness engineering, and structured control over agents in real workflows.</p>
-    </div>
-
-    <div class="project">
+    <div class="project-card">
       <h3><a href="/projects#knowledge-os">Knowledge OS</a></h3>
-      <p>A markdown-first personal memory substrate, with this site as a curated public layer rather than a raw dump.</p>
+      <p>
+        A markdown-first personal operating system for memory, retrieval, and
+        public expression. Agents operate over explicit, file-based context
+        rather than opaque memory. This site is derived from it.
+      </p>
     </div>
+
+    <div class="project-card">
+      <h3><a href="/projects#agent-infra">Agent infrastructure</a></h3>
+      <p>
+        Runtime correctness, memory continuity, and workflow tooling for
+        human-AI collaboration. Multi-agent orchestration and guardrails
+        encoded into the development environment itself.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3><a href="/projects#patient-family-sharing">Patient&ndash;family record sharing</a></h3>
+      <p>
+        An early exploration: a lightweight digital health layer where a
+        patient records what a hospital visit left them with &mdash; schedules,
+        instructions, preparation items &mdash; and chooses to share it with a
+        family member or care companion they designate. Scoped to record
+        sharing, preparation, and communication outside the hospital.
+      </p>
+    </div>
+
+    <p style="margin-top: 1rem;">
+      <a class="arrow-link" href="/projects">See all projects</a>
+    </p>
   </section>
 
   <section class="section">
@@ -47,52 +98,73 @@ import Base from '../layouts/Base.astro';
       <li>
         <span class="num">01</span>
         <div>
-          <strong>Runtime is the product.</strong>
-          <p>Most AI systems fail in the seams: retries, state handoffs, partial context, and 3am behavior. The product is what happens there.</p>
+          <strong>Demo-shaped doesn't scale.</strong>
+          <p>The interesting work is not "can an agent do X" but "can it do X reliably, in context, across sessions, with humans in the loop."</p>
         </div>
       </li>
       <li>
         <span class="num">02</span>
         <div>
           <strong>Memory should be explicit.</strong>
-          <p>If you can't read, inspect, and revise the memory layer, you can't trust what the agent is doing with it.</p>
+          <p>Files you can read, edit, and grep beat opaque vector stores. Plain text ages well; systems you can inspect get trusted.</p>
         </div>
       </li>
       <li>
         <span class="num">03</span>
         <div>
-          <strong>Ambient beats intrusive.</strong>
-          <p>The best AI systems earn attention by being useful quietly. They fit the workflow instead of interrupting it.</p>
-        </div>
-      </li>
-      <li>
-        <span class="num">04</span>
-        <div>
-          <strong>Deployment matters more than posture.</strong>
-          <p>The question is not whether a system sounds impressive, but whether it can survive contact with real operators, real users, and real constraints.</p>
+          <strong>Runtime is the product.</strong>
+          <p>What the agent does at 3am, mid-session, after a tool error &mdash; that's the surface area that matters.</p>
         </div>
       </li>
     </ol>
+    <p style="margin-top: 1.25rem;">
+      <a class="arrow-link" href="/direction">Read more on where this is going</a>
+    </p>
   </section>
+
+  {latestThoughts.length > 0 && (
+    <section class="section">
+      <span class="section-label">Recent thoughts</span>
+      <div>
+        {latestThoughts.map((post) => (
+          <div class="thought-item">
+            <h3>
+              <a href={`/thoughts/${post.id.replace(/\.md$/, "")}`}>{post.data.title}</a>
+            </h3>
+            <time datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top: 1rem;">
+        <a class="arrow-link" href="/thoughts">All thoughts</a>
+      </p>
+    </section>
+  )}
 
   <section class="section">
     <span class="section-label">Where to go next</span>
     <div class="entry-grid">
-      <a class="entry-card" href="/direction">
-        <h3>Direction</h3>
-        <p>The thesis, current focus, and the problems I actually want to spend years on.</p>
-      </a>
       <a class="entry-card" href="/projects">
-        <h3>Projects</h3>
-        <p>Work across SleepHub, agent infrastructure, personal memory systems, and practical tooling.</p>
+        <strong>Projects</strong>
+        <span>What I'm building and why</span>
       </a>
-      <a class="entry-card" href="/writing">
-        <h3>Writing</h3>
-        <p>Notes on agents, memory, product direction, and the systems layer under applied AI.</p>
+      <a class="entry-card" href="/thoughts">
+        <strong>Thoughts</strong>
+        <span>Notes from the workbench</span>
+      </a>
+      <a class="entry-card" href="/direction">
+        <strong>Direction</strong>
+        <span>Current focus and beliefs</span>
       </a>
       <a class="entry-card" href="/about">
-        <h3>About</h3>
-        <p>How I think about harnesses, interfaces, structured control, and collaboration with AI.</p>
+        <strong>About</strong>
+        <span>Background and how to reach me</span>
       </a>
     </div>
   </section>

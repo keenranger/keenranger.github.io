@@ -1,12 +1,12 @@
 ---
-import Base from '../layouts/Base.astro';
+import Base from "../layouts/Base.astro";
 ---
 
 <Base title="Projects">
   <section class="hero">
     <div class="eyebrow">Projects</div>
     <h1>What I'm building</h1>
-    <p class="hero-lede">
+    <p class="hero-lede muted">
       A small set of proof-oriented threads, product work, personal systems,
       and infrastructure that show how I think in public. The common thread is
       simple: real AI value appears when runtime, memory, and deployment hold up.
@@ -16,76 +16,120 @@ import Base from '../layouts/Base.astro';
   <section class="section">
     <span class="section-label">Primary threads</span>
 
-    <div class="project" id="sleephub">
+    <div class="project-card" id="sleephub">
       <h3>SleepHub</h3>
-      <div class="tag-row">
-        <span class="tag">product</span>
-        <span class="tag">ambient AI</span>
-        <span class="tag">voice agents</span>
-        <span class="tag">deployment</span>
-      </div>
       <p>
         Ambient, bedside AI product work for autonomous sleep coaching and
-        tracking at <a href="https://asleep.ai">Asleep</a>. This is where product,
-        device integration, sleep analysis, and real-world user loops meet.
+        tracking. This is where product, device integration, sleep analysis,
+        and real-world user loops meet. It is the clearest public signal of my
+        applied AI work and my bias toward systems that have to earn trust over time.
       </p>
-      <p>
-        It is the clearest public signal of my applied AI work and my bias toward
-        systems that have to earn trust over time.
-      </p>
+      <div class="tag-row">
+        <span class="tag">sleep</span>
+        <span class="tag">ambient AI</span>
+        <span class="tag">product</span>
+        <span class="tag">deployment</span>
+      </div>
+      <div class="project-links">
+        <a href="https://asleep.ai" target="_blank" rel="noopener">asleep.ai</a>
+      </div>
     </div>
 
-    <div class="project" id="knowledge-os">
+    <div class="project-card" id="knowledge-os">
       <h3>Knowledge OS</h3>
+      <p>
+        A markdown-first personal operating system for memory, retrieval, and
+        public expression. Files as source of truth, agents as readers and
+        writers, git as history. It is both a working system and a statement
+        about inspectability, explicit memory, and how AI should integrate with real workflows.
+      </p>
       <div class="tag-row">
-        <span class="tag">personal OS</span>
-        <span class="tag">markdown-first</span>
-        <span class="tag">agent memory</span>
+        <span class="tag">knowledge</span>
+        <span class="tag">memory</span>
+        <span class="tag">agents</span>
+        <span class="tag">markdown</span>
         <span class="tag">public layer</span>
       </div>
-      <p>
-        A private, agent-native personal operating system built around explicit files.
-        Raw sources flow into compiled pages for topics, projects, people, and decisions.
-        This public site is one curated output of that system.
-      </p>
-      <p>
-        The pattern matters more than the brand: inspectable memory upstream,
-        durable public expression downstream.
-      </p>
+      <div class="project-links">
+        <a href="/direction">Direction</a>
+        <a href="https://github.com/keenranger" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
 
-    <div class="project" id="agent-infra">
+    <div class="project-card" id="agent-infra">
       <h3>Agent infrastructure</h3>
+      <p>
+        Runtime correctness, memory continuity, and workflow tooling for
+        human-AI collaboration. Multi-agent orchestration, session handling,
+        tool contracts, and guardrails encoded into the environment itself.
+        The interesting work is what the system does when context is partial,
+        state drifts, or humans interrupt.
+      </p>
       <div class="tag-row">
+        <span class="tag">agents</span>
+        <span class="tag">infrastructure</span>
         <span class="tag">runtime</span>
-        <span class="tag">agent control</span>
-        <span class="tag">harness engineering</span>
         <span class="tag">workflow</span>
       </div>
-      <p>
-        Tooling and patterns for making agents reliable enough for real workflows.
-        Focus areas include session lifecycle, context packaging, structured control,
-        memory continuity, and the interface bridges that make strong systems usable.
-      </p>
-      <p>
-        The interesting problems are what the system does when context is partial,
-        state drifts, or humans interrupt. Those are runtime problems.
-      </p>
+      <div class="project-links">
+        <a href="/direction">Why this matters</a>
+        <a href="https://github.com/keenranger" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
   </section>
 
   <section class="section">
-    <span class="section-label">Utilities and experiments</span>
-    <div class="project" id="utilities">
+    <span class="section-label">Early explorations</span>
+
+    <div class="project-card" id="patient-family-sharing">
+      <h3>Patient&ndash;family record sharing</h3>
+      <p>
+        A lightweight digital health layer for the period after a hospital
+        visit. The patient records what they were told &mdash; appointments,
+        instructions, preparation items &mdash; and chooses to share those
+        notes with a family member or care companion they designate, so both
+        sides can stay on the same page about what comes next. Scoped
+        deliberately to patient-led record sharing, preparation, and
+        communication support outside the hospital &mdash; not medical
+        judgment, not triage. Early stage; being shaped with real patient and
+        family input before any code commits to a direction.
+      </p>
+      <div class="tag-row">
+        <span class="tag">digital health</span>
+        <span class="tag">patient-led</span>
+        <span class="tag">post-visit</span>
+        <span class="tag">record sharing</span>
+        <span class="tag">exploration</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Utilities &amp; experiments</span>
+
+    <div class="project-card" id="small-systems">
       <h3>Open and smaller utility systems</h3>
       <p>
         Practical tools that reduce real workflow friction: deeplink routing,
-        automation glue, environment guardrails, and small interaction-layer experiments.
+        automation glue, environment guardrails, and small interaction-layer
+        experiments. This is the scratch-your-own-itch side of my work, but it
+        is also a real identity signal: useful systems over ornamental complexity.
       </p>
-      <p>
-        This is the scratch-your-own-itch side of my work, but also a real identity signal:
-        useful systems over ornamental complexity.
-      </p>
+      <div class="tag-row">
+        <span class="tag">tools</span>
+        <span class="tag">automation</span>
+        <span class="tag">devex</span>
+        <span class="tag">utilities</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/keenranger" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
+  </section>
+
+  <section class="section">
+    <p>
+      <a class="arrow-link" href="/direction">Read why these, and where they're going</a>
+    </p>
   </section>
 </Base>

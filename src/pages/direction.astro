@@ -1,46 +1,77 @@
 ---
-import Base from '../layouts/Base.astro';
+import Base from "../layouts/Base.astro";
 
-const lastUpdated = new Date('2026-04-19').toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+const lastUpdated = new Date("2026-04-23").toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
 });
 ---
 
 <Base title="Direction">
   <section class="hero">
-    <div class="eyebrow">Direction · updated {lastUpdated}</div>
+    <div class="eyebrow">Direction &middot; updated {lastUpdated}</div>
     <h1>What I'm building toward</h1>
-    <p class="hero-lede">
-      A living page about where my attention is and what the work is really about.
-      Rewritten when the answer meaningfully changes, not on a schedule.
+    <p class="hero-lede muted">
+      A living page about where my attention is and what I think the work is
+      really about. Rewritten when the answer meaningfully changes, not on a
+      schedule.
     </p>
   </section>
 
   <section class="section">
     <span class="section-label">The thesis</span>
     <p>
-      We are a few years into a shift where software is no longer just a tool you pick up and put down.
-      It is increasingly something you work alongside. Most AI products still treat this like a chat box problem.
-      I think the real answer looks different: ambient, memory-rich systems that accumulate context over time
-      and act on your behalf in ways you can inspect and trust.
+      We are a few years into a shift where software is no longer a tool you
+      pick up and put down &mdash; it's an agent you work alongside. Most of
+      the current product surface area still treats AI as a chat window
+      bolted onto an app. I think the real answer looks different: ambient,
+      memory-rich systems that accumulate context with you over time and
+      operate on your behalf in ways you can inspect and trust.
     </p>
     <p>
-      The unsolved layer is not model capability. It is runtime: what happens when the model is wrong,
-      when context is incomplete, when sessions span weeks, when multiple agents have to agree on state.
-      That is the layer I want to build at.
+      The unsolved problems aren't about model capability. They are about
+      <em>runtime</em> &mdash; what the system does when the model is wrong,
+      when context is incomplete, when sessions span weeks, when two agents
+      need to agree on state. That's the layer I want to build at.
     </p>
   </section>
 
   <section class="section">
-    <span class="section-label">Now · current focus</span>
+    <span class="section-label">Now &middot; current focus</span>
     <ul class="now-list">
-      <li><strong>SleepHub.</strong> Shipping the bedside AI experience at Asleep. Understand what happened during the night, then turn that into useful daytime action.</li>
-      <li><strong>Knowledge OS.</strong> A markdown-first personal memory substrate. Files as source of truth, agents as readers and writers. This site is one translated output.</li>
-      <li><strong>Agent infrastructure.</strong> Session continuity, multi-agent coordination, runtime contracts, and guardrails encoded into the environment rather than left as prompt folklore.</li>
-      <li><strong>Validation surfaces.</strong> Exploring how AI systems move from internal prototypes to practical deployment, testbeds, and real users.</li>
-      <li><strong>Writing.</strong> Short concrete notes in <a href="/writing">Writing</a>, taken from the workbench rather than from abstraction.</li>
+      <li>
+        <strong>SleepHub.</strong> Shipping the next generation of the
+        bedside AI experience at Asleep. Core loop: understand what happened
+        during the night, then turn that into useful daytime action.
+      </li>
+      <li>
+        <strong>Knowledge OS.</strong> A markdown-first personal memory
+        substrate. Files as the source of truth, agents as readers and
+        writers, git as the history. This site is one translated output.
+      </li>
+      <li>
+        <strong>Agent infrastructure.</strong> Session continuity, multi-agent
+        coordination, runtime contracts, and guardrails encoded into the
+        environment rather than left as prompt folklore.
+      </li>
+      <li>
+        <strong>Validation surfaces.</strong> Exploring how AI systems move
+        from internal prototypes to practical deployment, testbeds, and real users.
+      </li>
+      <li>
+        <strong>Patient&ndash;family record sharing.</strong> An early
+        exploration of a lightweight digital health layer that helps a patient
+        and a patient-designated family member or care companion stay on the
+        same page after a hospital visit &mdash; shared schedules, instructions,
+        preparation items. Scoped to patient-led record sharing and
+        communication outside the hospital, not medical judgment. Shaping the
+        problem with real patient and family input first.
+      </li>
+      <li>
+        <strong>Writing.</strong> Publishing what I learn in
+        <a href="/thoughts">Thoughts</a>. Short, concrete, from the workbench.
+      </li>
     </ul>
   </section>
 
@@ -51,28 +82,28 @@ const lastUpdated = new Date('2026-04-19').toLocaleDateString('en-US', {
         <span class="num">01</span>
         <div>
           <strong>Demo-shaped doesn't scale.</strong>
-          <p>A prompt that looks impressive once is not a system. What matters is behavior across sessions, failures, interruptions, and edge cases.</p>
+          <p>A prompt that produces an impressive output once is not a system. What matters is behavior across sessions, edge cases, partial failures, and humans interrupting. That's the layer where correctness lives.</p>
         </div>
       </li>
       <li>
         <span class="num">02</span>
         <div>
           <strong>Memory should be explicit.</strong>
-          <p>If you cannot inspect and edit the memory layer, you cannot really trust it.</p>
+          <p>If you can't read, edit, or grep your agent's memory, you can't trust it. Files age well. Plain text survives tool churn. Opaque stores might win on convenience; they lose on auditability.</p>
         </div>
       </li>
       <li>
         <span class="num">03</span>
         <div>
           <strong>Runtime is the product.</strong>
-          <p>The happy path is not the interesting part. Product value is realized in retries, state handoffs, partial context, and how the system behaves when things are messy.</p>
+          <p>Most AI product value is realized in the seams: tool errors, retries, state handoffs, partial context. The "product" is how the system behaves in those moments, not in the happy path.</p>
         </div>
       </li>
       <li>
         <span class="num">04</span>
         <div>
           <strong>Ambient over intrusive.</strong>
-          <p>The best software disappears into the workflow. AI should earn its presence quietly.</p>
+          <p>The best software disappears. AI should earn its presence by being useful quietly, not by asking for attention. SleepHub is a test of this.</p>
         </div>
       </li>
       <li>
@@ -86,7 +117,14 @@ const lastUpdated = new Date('2026-04-19').toLocaleDateString('en-US', {
         <span class="num">06</span>
         <div>
           <strong>Build in the open when possible.</strong>
-          <p>Public artifacts lead to sharper thinking and better systems than private drafts that never meet resistance.</p>
+          <p>Public writing and public artifacts produce better thinking and better systems. Private drafts rot; public ones get corrected.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">07</span>
+        <div>
+          <strong>Small, durable, composable.</strong>
+          <p>Prefer boring technology I can debug over novelty I can't. Prefer small scripts I can read over frameworks that abstract away the problem. The best code is no code; the best change is the smallest change.</p>
         </div>
       </li>
     </ol>
@@ -95,8 +133,25 @@ const lastUpdated = new Date('2026-04-19').toLocaleDateString('en-US', {
   <section class="section">
     <span class="section-label">What I'm not doing</span>
     <p>
-      I'm not trying to build another generic agent framework or chase benchmarks for their own sake.
-      The attention goes into specific surfaces where AI has to behave well in practice.
+      Equally useful to name what's out of scope. I'm not building another
+      agent framework. I'm not chasing benchmarks. I'm not trying to wrap
+      models for generic productivity. The attention goes into the specific
+      surfaces above, and the general lessons get written up in
+      <a href="/thoughts">Thoughts</a>.
+    </p>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Where this goes next</span>
+    <p>
+      This page is the anchor I rewrite when the answer changes. If you're
+      reading it and the dates look stale, the
+      <a href="/thoughts">Thoughts</a> feed is probably the more current
+      signal. If any of the above resonates &mdash; or you think I'm wrong
+      about something &mdash; reach out via
+      <a href="https://x.com/hankyeolkyung" target="_blank" rel="noopener">X</a>
+      or
+      <a href="https://github.com/keenranger" target="_blank" rel="noopener">GitHub</a>.
     </p>
   </section>
 </Base>
