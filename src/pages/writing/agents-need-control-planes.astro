@@ -1,0 +1,61 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="Agents need control planes, not just prompts"
+  description="Why useful agent products need sessions, lifecycle, events, tools, approvals, and recovery surfaces — not only better prompts."
+>
+  <h1>Agents need control planes, not just prompts</h1>
+  <p class="subtitle">May 5, 2026</p>
+
+  <p>
+    The first interface to an agent is usually a prompt. That is fine for the first demo,
+    but it is not enough for a real product.
+  </p>
+
+  <p>
+    Once an agent starts doing meaningful work, the useful object is no longer a single
+    message and a single answer. It is a session: something that can be started, resumed,
+    interrupted, inspected, steered, rolled back, and reviewed. The agent becomes less like
+    a text box and more like a runtime.
+  </p>
+
+  <p>
+    That changes what has to be designed. A product needs to know what the agent is doing
+    right now, which tools it called, what it changed, whether it is waiting for approval,
+    how to recover after an error, and how to show progress without creating noise. These
+    are not prompt-engineering problems. They are control-plane problems.
+  </p>
+
+  <p>
+    The same pattern shows up in coding agents, personal agents, and workplace agents.
+    At small scale, chat is enough. At larger scale, people want lifecycle: list sessions,
+    resume a thread, fork a direction, interrupt a bad run, review a diff, approve a command,
+    archive a completed task, and understand what happened later.
+  </p>
+
+  <p>
+    This is why protocols and harnesses matter. The surrounding system determines whether
+    the agent can survive real workflows. The model may be powerful, but the product only
+    becomes trustworthy when state, events, tools, permissions, and recovery paths are explicit.
+  </p>
+
+  <p>
+    Reliability also feels different in this world. A lifecycle bug is not just a UI glitch.
+    A stuck run, duplicated job, missing transcript, orphaned progress update, or dropped final
+    delivery can become a control failure. The user does not care that the model produced the
+    right internal artifact if the final handoff failed.
+  </p>
+
+  <p>
+    My current bias is that many strong agent products will look less like smarter chat windows
+    and more like well-designed control surfaces. The chat may still be there, but underneath it
+    there should be a real session protocol: events, tools, approvals, filesystem or workspace
+    access, streaming progress, and a way to recover when something goes wrong.
+  </p>
+
+  <p>
+    Prompts are how we talk to agents. Control planes are how we live with them.
+  </p>
+</Base>
