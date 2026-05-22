@@ -1,11 +1,5 @@
 ---
 import Base from "../layouts/Base.astro";
-import { getCollection } from "astro:content";
-
-const latestThoughts = (await getCollection("thoughts"))
-  .filter((p) => !p.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
 ---
 
 <Base title="Home">
@@ -122,31 +116,6 @@ const latestThoughts = (await getCollection("thoughts"))
     </p>
   </section>
 
-  {latestThoughts.length > 0 && (
-    <section class="section">
-      <span class="section-label">Recent thoughts</span>
-      <div>
-        {latestThoughts.map((post) => (
-          <div class="thought-item">
-            <h3>
-              <a href={`/thoughts/${post.id.replace(/\.md$/, "")}`}>{post.data.title}</a>
-            </h3>
-            <time datetime={post.data.date.toISOString()}>
-              {post.data.date.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
-          </div>
-        ))}
-      </div>
-      <p style="margin-top: 1rem;">
-        <a class="arrow-link" href="/thoughts">All thoughts</a>
-      </p>
-    </section>
-  )}
-
   <section class="section">
     <span class="section-label">Where to go next</span>
     <div class="entry-grid">
@@ -154,8 +123,8 @@ const latestThoughts = (await getCollection("thoughts"))
         <strong>Projects</strong>
         <span>What I'm building and why</span>
       </a>
-      <a class="entry-card" href="/thoughts">
-        <strong>Thoughts</strong>
+      <a class="entry-card" href="/writing">
+        <strong>Writing</strong>
         <span>Notes from the workbench</span>
       </a>
       <a class="entry-card" href="/direction">
