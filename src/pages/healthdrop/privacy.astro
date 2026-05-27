@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="HealthDrop Privacy"
+  description="Privacy policy for HealthDrop, a one-way iPhone HealthKit export utility."
+>
+  <section class="hero">
+    <div class="eyebrow">HealthDrop</div>
+    <h1>Privacy Policy</h1>
+    <p class="hero-lede">
+      HealthDrop is a one-way export utility for your own iPhone HealthKit data.
+      It does not run analytics, ads, telemetry, or a third-party backend.
+    </p>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Data Access</span>
+    <p>
+      HealthDrop asks for read access to selected HealthKit data: sleep, steps,
+      resting heart rate, heart rate variability, and workouts. The app does
+      not write data back to HealthKit.
+    </p>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Data Export</span>
+    <p>
+      Health data leaves the device only when you press Export, and only to the
+      destination you choose in the app: iCloud Drive, the iOS share sheet, or
+      an HTTP endpoint you configure.
+    </p>
+    <p>
+      If you configure an HTTP endpoint, the destination server is controlled by
+      you. HealthDrop does not provide or operate a hosted ingest service.
+    </p>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Storage</span>
+    <p>
+      Export settings are stored locally on the device. HealthDrop does not
+      create a developer account, upload data to a developer server, sell data,
+      or share data with advertisers or data brokers.
+    </p>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Contact</span>
+    <p>
+      For support or privacy questions, use the public contact links on the
+      <a href="/healthdrop/support">HealthDrop support page</a>.
+    </p>
+  </section>
+</Base>

@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="HealthDrop Support"
+  description="Support page for HealthDrop, a one-way iPhone HealthKit export utility."
+>
+  <section class="hero">
+    <div class="eyebrow">HealthDrop</div>
+    <h1>Support</h1>
+    <p class="hero-lede">
+      HealthDrop exports selected HealthKit data from your iPhone to a
+      destination you choose.
+    </p>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Common Setup</span>
+    <ol>
+      <li>Open HealthDrop and grant HealthKit read access.</li>
+      <li>Choose iCloud Drive, share sheet, or your own HTTP endpoint.</li>
+      <li>Tap Export to create a seven-day JSON snapshot.</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Troubleshooting</span>
+    <p>
+      If HealthKit data is missing, check iOS Settings and confirm HealthDrop
+      has permission to read the relevant health categories. If iCloud exports
+      do not appear immediately, give iCloud Drive a few minutes to sync.
+    </p>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Contact</span>
+    <p>
+      For issues or questions, contact Hankyeol Kyung through
+      <a href="https://github.com/keenranger" target="_blank" rel="noopener">GitHub</a>
+      or <a href="https://x.com/hankyeolkyung" target="_blank" rel="noopener">X</a>.
+    </p>
+  </section>
+</Base>
