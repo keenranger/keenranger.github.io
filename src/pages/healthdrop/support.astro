@@ -4,24 +4,41 @@ import Base from '../../layouts/Base.astro';
 
 <Base
   title="HealthDrop Support"
-  description="Support page for HealthDrop, a one-way iPhone HealthKit export utility."
+  description="HealthDrop setup and support for iPhone exports and the Android release candidate."
 >
   <section class="hero">
     <div class="eyebrow">HealthDrop</div>
     <h1>Support</h1>
     <p class="hero-lede">
-      HealthDrop exports selected HealthKit data from your iPhone to a
-      destination you choose.
+      HealthDrop displays health summaries and exports records you permit it
+      to read. iPhone and Android features differ. Android 1.4.0 is a release
+      candidate and is not yet available on Google Play.
     </p>
   </section>
 
   <section class="section">
-    <span class="section-label">Common Setup</span>
+    <span class="section-label">iPhone Setup</span>
     <ol>
       <li>Open HealthDrop and grant HealthKit read access.</li>
       <li>Choose iCloud Drive, share sheet, or your own HTTP endpoint.</li>
-      <li>Tap Export to create a seven-day JSON snapshot.</li>
+      <li>Tap Export. iCloud maintains a manifest and daily JSON files using incremental reads; other destinations receive a JSON file.</li>
     </ol>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Android Release Candidate</span>
+    <ol>
+      <li>Use a supported device with Health Connect available.</li>
+      <li>Allow the five read categories: steps, resting heart rate, HRV RMSSD, sleep and exercise sessions.</li>
+      <li>Run Export to create a fresh snapshot of the last 30 days and open the system share sheet. Cancel the sheet to keep the file local, or choose a recipient only if you intend to share.</li>
+    </ol>
+    <p>No health-record write, background read, extended-history or automatic health-file upload is requested. iCloud and HTTP endpoint export are not supported in this Android candidate.</p>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Automatic Exports and Privacy</span>
+    <p>On iPhone, iCloud export can run at launch or resume and through best-effort background tasks. Turning off the launch-export setting does not stop the background iCloud path. Selecting a share-sheet or HTTP target disables automatic iCloud export for that target.</p>
+    <p>Production builds use Sentry for technical crash diagnostics and Expo for compatible app updates. See the <a href="/healthdrop/privacy/">privacy policy</a> for data flows and local copies.</p>
   </section>
 
   <section class="section">
@@ -31,6 +48,7 @@ import Base from '../../layouts/Base.astro';
       has permission to read the relevant health categories. If iCloud exports
       do not appear immediately, give iCloud Drive a few minutes to sync.
     </p>
+    <p>On Android, all five permissions are required before export. If access is denied, export stops before creating a shared file. Check Health Connect permissions and data sources; an empty export does not establish that a source app has synchronized records. Revoke access in the platform health settings when desired.</p>
   </section>
 
   <section class="section">

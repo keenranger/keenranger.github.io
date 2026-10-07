@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="HealthDrop" description="Personal health summaries and JSON exports from Apple Health, with an Android Health Connect release candidate.">
+  <section class="hero">
+    <div class="eyebrow">HealthDrop</div>
+    <h1>Your health data, in a file you can use.</h1>
+    <p class="hero-lede">View summaries and export the health records you allow HealthDrop to read. Features and destinations differ by platform.</p>
+  </section>
+  <section class="section">
+    <h2>iPhone</h2>
+    <p>Read Apple Health sleep, workouts and supported activity, heart, body and mobility metrics. Export to iCloud Drive, the system share sheet or an HTTP endpoint you configure. iCloud supports incremental daily files and best-effort automatic export.</p>
+  </section>
+  <section class="section">
+    <h2>Android — preparing for Google Play review</h2>
+    <p>The Android 1.4.0 candidate reads Health Connect steps, resting heart rate, HRV RMSSD, sleep and exercise sessions. Each manual foreground export creates a fresh last-30-days snapshot and opens the system share sheet.</p>
+    <p>This candidate is not yet available on Google Play. It does not support automatic health-file uploads, iCloud, HTTP export, background health reads or an extended-history archive.</p>
+  </section>
+  <section class="section">
+    <h2>Privacy and support</h2>
+    <p>Production builds use Sentry for technical crash diagnostics and Expo for compatible app updates. Health permissions and export destinations remain under your control; earlier shared copies must be managed at their destination.</p>
+    <p><a href="/healthdrop/privacy/">Read the privacy policy</a> · <a href="/healthdrop/support/">Setup and support</a></p>
+  </section>
+</Base>

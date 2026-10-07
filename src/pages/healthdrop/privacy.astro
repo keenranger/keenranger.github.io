@@ -2,55 +2,33 @@
 import Base from '../../layouts/Base.astro';
 ---
 
-<Base
-  title="HealthDrop Privacy"
-  description="Privacy policy for HealthDrop, a one-way iPhone HealthKit export utility."
->
+<Base title="HealthDrop Privacy" description="Privacy policy for HealthDrop health data summaries and exports.">
   <section class="hero">
-    <div class="eyebrow">HealthDrop</div>
     <h1>Privacy Policy</h1>
-    <p class="hero-lede">
-      HealthDrop is a one-way export utility for your own iPhone HealthKit data.
-      It does not run analytics, ads, telemetry, or a third-party backend.
-    </p>
+    <p>HealthDrop lets you view summaries and export health data from your device. The available data and export features depend on your app version and platform. HealthDrop does not require an app account. It uses third-party services for crash diagnostics and app updates, as described below.</p>
   </section>
-
   <section class="section">
-    <span class="section-label">Data Access</span>
-    <p>
-      HealthDrop asks for read access to selected HealthKit data: sleep, steps,
-      resting heart rate, heart rate variability, and workouts. The app does
-      not write data back to HealthKit.
-    </p>
+    <h2>Health data access</h2>
+    <p>On iPhone, HealthDrop requests read access to Apple Health data supported by the app. Categories include sleep and workouts; steps, activity energy, exercise and stand time, flights climbed and distances; heart rate, resting and walking heart rate, HRV SDNN, blood oxygen, VO2 max and respiratory rate; weight, BMI, body fat, lean mass and temperatures; and supported walking mobility metrics. Actual availability depends on your device, data sources and Health permissions. The app does not request permission to write these records to Apple Health.</p>
+    <p>On Android builds with Health Connect support, HealthDrop requests read access to steps, resting heart rate, HRV RMSSD, sleep and exercise sessions. The initial Android export is a fresh snapshot of the last 30 days. It does not request extended-history, background-health-read or health-record-write permission. You may manage or revoke health access in your platform&#x27;s health settings.</p>
   </section>
-
   <section class="section">
-    <span class="section-label">Data Export</span>
-    <p>
-      Health data leaves the device only when you press Export, and only to the
-      destination you choose in the app: iCloud Drive, the iOS share sheet, or
-      an HTTP endpoint you configure.
-    </p>
-    <p>
-      If you configure an HTTP endpoint, the destination server is controlled by
-      you. HealthDrop does not provide or operate a hosted ingest service.
-    </p>
+    <h2>Export destinations and automatic exports</h2>
+    <p>On iPhone, exports can be written to your iCloud Drive, shared through the system share sheet, or posted to an HTTP endpoint you configure. iCloud export may also run when you open or resume the app if the launch-export setting is enabled, and through best-effort HealthKit/background refresh tasks. Turning off the launch-export setting controls launch/resume export; it does not currently disable the iOS background iCloud export path. Share-sheet and HTTP endpoint exports require a manual action in the current implementation.</p>
+    <p>On the initial Android Health Connect build, exports require an explicit foreground action and use the system share sheet only. No health snapshot is sent automatically, and Android does not support iCloud or HTTP endpoint export in that version. A new snapshot reflects currently readable records; HealthDrop cannot recall or modify copies previously shared with another app.</p>
+    <p>The destination you select receives the exported health data. For iCloud, Apple manages the cloud service under your Apple account. For a configured HTTP endpoint or a share recipient, that destination&#x27;s handling of the file is outside HealthDrop&#x27;s control. HealthDrop does not provide a hosted health export endpoint.</p>
   </section>
-
   <section class="section">
-    <span class="section-label">Storage</span>
-    <p>
-      Export settings are stored locally on the device. HealthDrop does not
-      create a developer account, upload data to a developer server, sell data,
-      or share data with advertisers or data brokers.
-    </p>
+    <h2>Crash diagnostics and app updates</h2>
+    <p>Production builds use Sentry for crash and error diagnostics. Reports may include technical app, device, operating-system, stack and runtime context. The app does not intentionally attach health records, export files or webhook credentials to these diagnostic events. The Sentry configuration disables default personal-information collection and console/network-request/touch-event breadcrumbs. Performance tracing is not configured. These safeguards do not guarantee that every technical diagnostic is anonymous.</p>
+    <p>Expo&#x27;s update service is used to check for and deliver compatible app updates. App/build/runtime information is used by that service. This is separate from health-file export. This release does not include an advertising or product-analytics SDK.</p>
   </section>
-
   <section class="section">
-    <span class="section-label">Contact</span>
-    <p>
-      For support or privacy questions, use the public contact links on the
-      <a href="/healthdrop/support">HealthDrop support page</a>.
-    </p>
+    <h2>Local storage and copies</h2>
+    <p>Export settings, including any configured HTTP endpoint and token, are stored locally by the app. Exported files may be retained in the destination you chose and, for share export, in the app&#x27;s cache. Removing or revoking a health grant does not automatically remove earlier export copies from those destinations. Manage those copies through the destination&#x27;s controls.</p>
+  </section>
+  <section class="section">
+    <h2>Contact</h2>
+    <p>For support or privacy questions, use the contact links on the HealthDrop support page: https://keenranger.github.io/healthdrop/support/.</p>
   </section>
 </Base>
